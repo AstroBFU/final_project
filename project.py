@@ -7,14 +7,11 @@ from matplotlib.animation import FuncAnimation
 ae = 149597870700
 le = 63241.1 * ae
 parcek = ae * 206265
-inner_eccentricity = 0.3
+inner_eccentricity = 0.7
 outer_eccentricity = 0.9
-angular_offset = 0.0004 / le # от 0.0003/масштаб до 0.0007/масштаб
+angular_offset = 0.0001 / le # от 0.0003/масштаб до 0.0007/масштаб
 core_radius = 1000 * parcek
 galaxy_radius = 50000 * le
-
-
-
 
 vxc=0
 vyc=0
@@ -23,18 +20,18 @@ yc=0
 N = 7000
 
 G = 6.67 * 10 ** (-11)
-m_g = 4.8 * 10 ** 11 * 1.98 * 10 ** (30) / 2
+m_g = 9.399742662685108e+39
 
 gx0_one = 1
 gy0_one = - 30000 * le
-gv_x0_one = 500000
+gv_x0_one = 147000
 gv_y0_one = 0
 
 print(gv_x0_one)
 
 gx0_two = 1
 gy0_two = 30000 * le
-gv_x0_two = - 500000
+gv_x0_two = - 147000
 gv_y0_two = 0
 
 print(gv_x0_two)
@@ -43,7 +40,7 @@ s0 = (gx0_one, gv_x0_one, gy0_one, gv_y0_one,
       gx0_two, gv_x0_two, gy0_two, gv_y0_two)
 
 frames = 1400
-t = np.linspace(0, 2.3072e+16, frames)
+t = np.linspace(0, 5.3072e+17, frames)
 
 """
 Функция распределения частиц в галактике
@@ -55,25 +52,19 @@ galaxy_radius - Радиус галактики
 N - Количество звезд
 vxc - "х" компонента скорости центра
 vyc - "у" компонента скорости центра
-
 G - гравитационная постоянная
 m_g - масса галактики
-
 gx0_one - положение объекта 1 на оси х
 gy0_one - положение объекта 1 на оси у
 gv_x0_one - начальная скорость объекта 1 по оси х
 gv_y0_one - начальная скорость объекта 1 по оси у
-
 gx0_two - положение объекта 2 на оси х
 gy0_two - положение объекта 2 на оси у
 gv_x0_two - начальная скорость объекта 2 по оси х
 gv_y0_two - начальная скорость объекта 2 по оси у
-
 xc - начальные координаты центра
 yc - начальные координаты центра
-
 frames - количество кадров
-
 """
 
 distant_radius = galaxy_radius * 2 # Радиус, после которого все волны
